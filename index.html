@@ -1,11 +1,152 @@
-<!DOCTYPE html>
-<html lang="en">
+
+1 of 11
+3,
+Spam
+link zelda <linkzelda9981@gmail.com>
+Attachments
+10:16 PM (0 minutes ago)
+to me
+
+Why is this message in spam? This message is similar to messages that were identified as spam in the past.
+Report not spam
+html:
+
+
+
+ 3 Attachments
+  •  Scanned by Gmail
+index.html
+100%
+<!doctype html>
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101827">
+  <title>ParkCorp | Estacionamento Empresarial</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
-    
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#" aria-label="ParkCorp início">
+        <span class="brand-mark"><svg viewBox="0 0 40 40" aria-hidden="true"><rect x="3" y="3" width="34" height="34" rx="10" fill="currentColor"/><path d="M15 29V11h8.2c5 0 8 2.8 8 7s-3 7-8 7H20v4h-5Zm5-8h3c2 0 3.2-1 3.2-3s-1.2-3-3.2-3h-3v6Z" fill="#101827"/></svg></span>
+        <span><strong>ParkCorp</strong><small>ESTACIONAMENTO EMPRESARIAL</small></span>
+      </a>
+      <div class="nav-label">GESTÃO</div>
+      <nav class="nav">
+        <button class="nav-item active" data-view="dashboard"><span>▦</span> Visão geral</button>
+        <button class="nav-item" data-view="parking"><span>▤</span> Pátio e vagas</button>
+        <button class="nav-item" data-view="vehicles"><span>⇄</span> Veículos</button>
+        <button class="nav-item" data-view="cameras"><span>◉</span> Câmeras</button>
+        <button class="nav-item" data-view="kiosk"><span>▣</span> Totem do cliente</button>
+        <button class="nav-item" data-view="reports"><span>▥</span> Relatórios</button>
+      </nav>
+      <div class="nav-label admin-label">SISTEMA</div>
+      <nav class="nav">
+        <button class="nav-item" data-view="admin"><span>⚙</span> Administração</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="status-card"><span class="status-dot"></span><div><b>Sistema operacional</b><small>Todos os serviços ativos</small></div></div>
+        <div class="user-card"><div class="avatar">AD</div><div><b>Administrador</b><small>Gestor do estacionamento</small></div><button class="more-btn" aria-label="Mais opções">···</button></div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobileMenu" aria-label="Abrir menu">☰</button>
+        <div class="breadcrumb"><span>ParkCorp</span><b>/</b><strong id="pageCrumb">Visão geral</strong></div>
+        <div class="top-actions"><span class="live-indicator"><i></i> AO VIVO</span><span class="top-date" id="currentDate"></span><button class="icon-btn" id="quickEntry" title="Registrar entrada">＋</button></div>
+      </header>
+
+      <section class="page active" id="view-dashboard">
+        <div class="page-heading"><div><div class="eyebrow">PAINEL DE CONTROLE</div><h1>Visão geral</h1><p>Acompanhe a operação do estacionamento em tempo real.</p></div><div class="heading-actions"><button class="btn btn-secondary" id="simulateBtn">↻ Simular chegada</button><button class="btn btn-primary" id="newEntryBtn">＋ Nova entrada</button></div></div>
+        <div class="stats-grid">
+          <article class="stat-card"><div class="stat-top"><span>Vagas totais</span><span class="stat-icon blue">▦</span></div><div class="stat-value" id="totalSpots">24</div><div class="stat-foot">Capacidade do estacionamento</div></article>
+          <article class="stat-card"><div class="stat-top"><span>Vagas ocupadas</span><span class="stat-icon amber">▣</span></div><div class="stat-value" id="occupiedSpots">8</div><div class="stat-foot"><span class="tiny-dot amber-dot"></span><span id="occupancyRate">33%</span> de ocupação</div></article>
+          <article class="stat-card"><div class="stat-top"><span>Vagas disponíveis</span><span class="stat-icon green">✓</span></div><div class="stat-value" id="availableSpots">16</div><div class="stat-foot"><span class="tiny-dot green-dot"></span>Prontas para receber veículos</div></article>
+          <article class="stat-card"><div class="stat-top"><span>Veículos hoje</span><span class="stat-icon violet">⇄</span></div><div class="stat-value" id="todayVehicles">12</div><div class="stat-foot"><span class="trend">↑</span> Entradas registradas hoje</div></article>
+        </div>
+
+        <div class="dashboard-grid">
+          <article class="panel parking-panel">
+            <div class="panel-header"><div><h2>Mapa do estacionamento</h2><p>Visualização da ocupação das vagas</p></div><button class="text-btn" data-goto="parking">Ver pátio completo ↗</button></div>
+            <div class="legend"><span><i class="legend-box available"></i> Disponível</span><span><i class="legend-box occupied"></i> Ocupada</span><span><i class="legend-box reserved"></i> Reservada</span></div>
+            <div class="spot-grid" id="dashboardSpots"></div>
+            <div class="parking-summary"><span><b id="dashAvailable">16</b> vagas livres</span><span><b id="dashOccupied">8</b> ocupadas</span></div>
+          </article>
+          <article class="panel activity-panel">
+            <div class="panel-header"><div><h2>Movimentações recentes</h2><p>Últimas atividades registradas</p></div><button class="text-btn" data-goto="vehicles">Ver todas ↗</button></div>
+            <div class="activity-list" id="recentActivity"></div>
+          </article>
+        </div>
+        <div class="bottom-grid">
+          <article class="panel camera-mini"><div class="panel-header"><div><h2>Monitoramento</h2><p>Status dos dispositivos</p></div><span class="pill pill-green">● 2 online</span></div><div class="camera-row"><div class="camera-thumb"><span>◉</span><small>ENTRADA</small></div><div class="camera-info"><b>Câmera de entrada</b><small>Reconhecimento de placas</small><span class="device-online">● Conectada</span></div><span class="camera-time">Agora</span></div><div class="camera-row"><div class="camera-thumb"><span>◉</span><small>SAÍDA</small></div><div class="camera-info"><b>Câmera de saída</b><small>Monitoramento de fluxo</small><span class="device-online">● Conectada</span></div><span class="camera-time">Agora</span></div></article>
+          <article class="panel occupancy-panel"><div class="panel-header"><div><h2>Taxa de ocupação</h2><p>Utilização atual do pátio</p></div></div><div class="donut-wrap"><div class="donut" id="occupancyDonut"><div><strong id="donutPercent">33%</strong><small>ocupado</small></div></div><div class="donut-legend"><span><i class="legend-box occupied"></i> Ocupadas <b id="legendOccupied">8</b></span><span><i class="legend-box available"></i> Livres <b id="legendAvailable">16</b></span></div></div></article>
+        </div>
+      </section>
+
+      <section class="page" id="view-parking">
+        <div class="page-heading"><div><div class="eyebrow">CONTROLE DE CAPACIDADE</div><h1>Pátio e vagas</h1><p>Gerencie a disponibilidade e o status de cada vaga.</p></div><button class="btn btn-primary" id="parkingEntryBtn">＋ Registrar entrada</button></div>
+        <article class="panel"><div class="panel-header"><div><h2>Mapa de vagas</h2><p>Selecione uma vaga para consultar ou alterar seu status.</p></div><div class="filter-group" id="spotFilters"><button class="filter-chip selected" data-filter="all">Todas</button><button class="filter-chip" data-filter="available">Disponíveis</button><button class="filter-chip" data-filter="occupied">Ocupadas</button><button class="filter-chip" data-filter="reserved">Reservadas</button></div></div><div class="legend"><span><i class="legend-box available"></i> Disponível</span><span><i class="legend-box occupied"></i> Ocupada</span><span><i class="legend-box reserved"></i> Reservada</span></div><div class="spot-grid full-spot-grid" id="allSpots"></div></article>
+      </section>
+
+      <section class="page" id="view-vehicles">
+        <div class="page-heading"><div><div class="eyebrow">CONTROLE DE ACESSO</div><h1>Veículos</h1><p>Consulte entradas, saídas e veículos atualmente no pátio.</p></div><button class="btn btn-primary" id="vehiclesEntryBtn">＋ Nova entrada</button></div>
+        <article class="panel"><div class="table-toolbar"><div class="search-box"><span>⌕</span><input id="vehicleSearch" type="search" placeholder="Buscar por placa ou modelo..."></div><select id="vehicleStatus"><option value="all">Todos os status</option><option value="inside">No estacionamento</option><option value="exited">Finalizados</option></select></div><div class="table-scroll"><table><thead><tr><th>VEÍCULO</th><th>PLACA</th><th>VAGA</th><th>ENTRADA</th><th>SAÍDA</th><th>STATUS</th><th>AÇÃO</th></tr></thead><tbody id="vehicleTable"></tbody></table></div><div class="table-footer" id="vehicleCount"></div></article>
+      </section>
+
+      <section class="page" id="view-cameras">
+        <div class="page-heading"><div><div class="eyebrow">SEGURANÇA E MONITORAMENTO</div><h1>Câmeras</h1><p>Dispositivos de monitoramento e leitura de placas.</p></div><span class="pill pill-green">● Sistema conectado</span></div>
+        <div class="camera-grid"><article class="panel camera-card"><div class="camera-feed"><div class="feed-grid"></div><div class="feed-center">◉<small>PRÉ-VISUALIZAÇÃO</small></div><span class="feed-tag">CAM 01 · ENTRADA</span><span class="feed-live">● AO VIVO (DEMO)</span></div><div class="camera-card-info"><div><h2>Câmera de entrada</h2><p>Leitura automática de placas (ALPR)</p></div><span class="pill pill-green">Online</span></div><div class="camera-details"><span>Última atividade <b>Agora</b></span><span>IP do dispositivo <b>Não configurado</b></span></div></article><article class="panel camera-card"><div class="camera-feed exit-feed"><div class="feed-grid"></div><div class="feed-center">◉<small>PRÉ-VISUALIZAÇÃO</small></div><span class="feed-tag">CAM 02 · SAÍDA</span><span class="feed-live">● AO VIVO (DEMO)</span></div><div class="camera-card-info"><div><h2>Câmera de saída</h2><p>Controle de fluxo e saída de veículos</p></div><span class="pill pill-green">Online</span></div><div class="camera-details"><span>Última atividade <b>Agora</b></span><span>IP do dispositivo <b>Não configurado</b></span></div></article></div>
+        <article class="panel alpr-panel"><div><span class="stat-icon violet">⌗</span><h2>Simulação de reconhecimento</h2><p>Teste o fluxo de leitura automática de placas. Esta demonstração não acessa uma câmera física.</p></div><button class="btn btn-primary" id="plateDemoBtn">Executar simulação</button><div class="recognition-result hidden" id="recognitionResult"></div></article>
+      </section>
+
+      <section class="page" id="view-kiosk">
+        <div class="page-heading"><div><div class="eyebrow">AUTOATENDIMENTO</div><h1>Totem do cliente</h1><p>Prévia da interface de consulta para visitantes.</p></div><span class="pill pill-blue">Modo demonstração</span></div>
+        <div class="kiosk-stage"><div class="kiosk-device"><div class="kiosk-screen"><div class="kiosk-brand">P<span>ark</span>Corp</div><div class="kiosk-welcome">Bem-vindo!</div><p>Consulte a situação do seu veículo</p><label for="kioskPlate">DIGITE A PLACA DO VEÍCULO</label><input id="kioskPlate" maxlength="7" placeholder="ABC1D23" autocomplete="off"><button id="kioskSearch" class="kiosk-button">Consultar veículo →</button><div class="kiosk-message" id="kioskMessage">Atendimento disponível</div><small>ESTACIONAMENTO EMPRESARIAL</small></div><div class="kiosk-foot"></div></div></div>
+      </section>
+
+      <section class="page" id="view-reports">
+        <div class="page-heading"><div><div class="eyebrow">DESEMPENHO OPERACIONAL</div><h1>Relatórios</h1><p>Resumo das movimentações e da ocupação do estacionamento.</p></div><button class="btn btn-secondary" id="exportCsv">↓ Exportar CSV</button></div>
+        <div class="stats-grid report-stats"><article class="stat-card"><div class="stat-top"><span>Movimentações</span><span class="stat-icon blue">⇄</span></div><div class="stat-value" id="reportMovements">12</div><div class="stat-foot">Registros no histórico</div></article><article class="stat-card"><div class="stat-top"><span>Veículos no pátio</span><span class="stat-icon amber">▣</span></div><div class="stat-value" id="reportInside">8</div><div class="stat-foot">Ocupação atual</div></article><article class="stat-card"><div class="stat-top"><span>Vagas livres</span><span class="stat-icon green">✓</span></div><div class="stat-value" id="reportFree">16</div><div class="stat-foot">Disponibilidade atual</div></article><article class="stat-card"><div class="stat-top"><span>Ocupação</span><span class="stat-icon violet">◔</span></div><div class="stat-value" id="reportRate">33%</div><div class="stat-foot">Da capacidade total</div></article></div>
+        <article class="panel"><div class="panel-header"><div><h2>Histórico de movimentações</h2><p>Registro completo de entradas e saídas.</p></div></div><div class="table-scroll"><table><thead><tr><th>DATA</th><th>HORÁRIO</th><th>PLACA</th><th>EVENTO</th><th>VAGA</th></tr></thead><tbody id="reportTable"></tbody></table></div></article><article class="panel payment-history-panel"><div class="panel-header"><div><h2>Pagamentos registrados</h2><p>Histórico local das cobranças confirmadas no sistema.</p></div></div><div class="table-scroll"><table><thead><tr><th>DATA</th><th>PLACA</th><th>PERMANÊNCIA</th><th>FORMA</th><th>VALOR</th><th>STATUS</th></tr></thead><tbody id="paymentsTable"></tbody></table></div></article>
+      </section>
+
+      <section class="page" id="view-admin">
+        <div class="page-heading"><div><div class="eyebrow">CONFIGURAÇÕES</div><h1>Administração</h1><p>Preferências gerais e dados do estacionamento.</p></div><button class="btn btn-primary" id="saveSettings">Salvar alterações</button></div>
+        <div class="admin-grid"><article class="panel settings-panel"><h2>Dados do estacionamento</h2><p>Informações exibidas no painel e no totem.</p><label>Nome do estacionamento<input id="garageName" value="ParkCorp"></label><label>Capacidade total de vagas<input id="garageCapacity" type="number" min="1" max="200" value="24"></label><label>Identificação da unidade<input id="garageUnit" value="Unidade Matriz"></label><div class="pricing-divider"></div><h2>Tarifas de estacionamento</h2><p>Altere os valores usados no cálculo automático da saída.</p><div class="form-row"><label>Tarifa básica (R$)<input id="baseFee" type="number" min="0" step="0.01" value="30.00"></label><label>Adicional por hora (R$)<input id="hourlyFee" type="number" min="0" step="0.01" value="5.00"></label></div><small class="settings-hint">A tarifa básica cobre a primeira hora. Cada hora adicional iniciada soma o adicional configurado.</small></article><article class="panel settings-panel"><h2>Preferências do sistema</h2><p>Configurações locais desta demonstração.</p><div class="setting-line"><div><b>Persistência local</b><small>Salvar dados neste navegador</small></div><span class="pill pill-green">Ativada</span></div><div class="setting-line"><div><b>Reconhecimento de placas</b><small>Simulação de leitura automática</small></div><span class="pill pill-blue">Demonstração</span></div><div class="setting-line"><div><b>Notificações</b><small>Alertas dentro da aplicação</small></div><label class="switch"><input type="checkbox" id="notifications" checked><span></span></label></div><button class="btn btn-danger-outline" id="resetData">Restaurar dados de demonstração</button></article></div>
+      </section>
+      <footer class="footer">© <span id="year"></span> ParkCorp · Sistema de gestão de estacionamento <span>Versão 1.0.0</span></footer>
+    </main>
+  </div>
+
+  <div class="modal-backdrop hidden" id="entryModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <form class="modal" id="entryForm"><div class="modal-header"><div><div class="eyebrow">CONTROLE DE ACESSO</div><h2 id="modalTitle">Registrar entrada</h2><p>Informe os dados do veículo para liberar uma vaga.</p></div><button type="button" class="close-modal" id="closeModal" aria-label="Fechar">×</button></div>
+      <label>Placa do veículo<input id="entryPlate" required maxlength="7" placeholder="ABC1D23" autocomplete="off"></label>
+      <div class="form-row"><label>Modelo / veículo<input id="entryModel" placeholder="Ex.: Toyota Corolla"></label><label>Cor<input id="entryColor" placeholder="Ex.: Prata"></label></div>
+      <label>Vaga disponível<select id="entrySpot" required></select></label>
+      <div class="modal-actions"><button type="button" class="btn btn-secondary" id="cancelEntry">Cancelar</button><button type="submit" class="btn btn-primary">Confirmar entrada</button></div>
+    </form>
+  </div>
+  <div class="modal-backdrop hidden" id="paymentModal" role="dialog" aria-modal="true" aria-labelledby="paymentTitle">
+    <form class="modal payment-modal" id="paymentForm">
+      <div class="modal-header"><div><div class="eyebrow">FECHAMENTO DE ESTADIA</div><h2 id="paymentTitle">Pagamento do estacionamento</h2><p>Confira o valor e selecione a forma de pagamento.</p></div><button type="button" class="close-modal" id="closePayment" aria-label="Fechar">×</button></div>
+      <div class="payment-vehicle" id="paymentVehicle"></div>
+      <div class="bill-breakdown" id="billBreakdown"></div>
+      <div class="payment-total"><span>Total a pagar</span><strong id="paymentTotal">R$ 30,00</strong></div>
+      <div class="payment-method-title">Forma de pagamento</div>
+      <div class="payment-methods">
+        <label class="payment-method"><input type="radio" name="paymentMethod" value="debit" checked><span class="method-icon">▣</span><span><b>Débito</b><small>Cartão de débito</small></span></label>
+        <label class="payment-method"><input type="radio" name="paymentMethod" value="credit"><span class="method-icon">▣</span><span><b>Crédito</b><small>Cartão de crédito</small></span></label>
+        <label class="payment-method"><input type="radio" name="paymentMethod" value="pix"><span class="method-icon">⌗</span><span><b>PIX</b><small>Pagamento instantâneo</small></span></label>
+      </div>
+      <div class="payment-note" id="paymentNote">Modo local de demonstração: confirmar registra o pagamento no histórico, mas não faz uma cobrança bancária real.</div>
+      <div class="pix-demo hidden" id="pixDemo"><b>PIX demonstrativo</b><p>Este código é apenas ilustrativo e não movimenta dinheiro.</p><code id="pixCode">PARKCORP-PIX-DEMO</code><button type="button" class="btn btn-secondary" id="copyPix">Copiar código demonstrativo</button></div>
+      <div class="modal-actions"><button type="button" class="btn btn-secondary" id="cancelPayment">Cancelar</button><button type="submit" class="btn btn-primary" id="confirmPayment">Confirmar pagamento</button></div>
+    </form>
+  </div>
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
 </body>
 </html>
